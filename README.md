@@ -12,5 +12,28 @@ The purpose of this project is to build a very simple tool that would help me to
 
 Now, I hate android development from the bottom of my soul from it's first incarnation of a ameobea some 7 million years ago but I truely hope this project will change my perception of it. So here goes!
 
+[Here's a link to the original post!](https://www.reddit.com/r/getdisciplined/comments/9t0gqz/method_how_i_went_from_rock_bottom_to_disciplined/)
 
+## High-level usage scenarion:
+The user will have a list of mandatory fields such as sleep times, water consumed, workout, screen time, hourse wasted etc. Additionally, they can add any hobbies that they wish to pursure such as read, write, play bass etc. All these come with a configurable minimum and maximum limit. The user will be trusted with making these entries daily. Given this information, we will define Key Performance Index (KPI) that will give an overview of the daily data at a glance. A simple example KPI would be Workout vs. Water Consumed. The KPI will calculate how much water you consumed on days that you worked out vs. the days you didn't. If isn't in propertion, the KPI will indicate poor. The possibilities are endless! Apart from this, we will generate a weekly report on how your week has been. It will be a simple report that will let you see your week prgress at a glance and make better life decisions.
 
+## Technologies I hope to use:
+- Infrastructure: GCP Engines, docker, Kubernetes
+- Database: Cassandra? Maybe Postgres, lets see. Depends on how relational I'm feeling :P
+- Language: Pure Go
+- Configuration Management Tool: Ansible
+- Load Balencer/API Gateway: Nginx, what else?
+- Android App: I've idea where to even start, will learn
+- Would I need a message queue? Kafka, if so
+
+## Highlevel Backend:
+All microservices will be RESTful
+- User Service: API's on users. Create, Update, Get etc on users as well as the tasks they wish to track
+- Auth: Maintain simple auth tokens (JWT)
+- History: Time sereis DB to track history of each activity on a daily Basis
+- Activity: Add/delete/update activities and their limits, example, "drinkwater no less than 4ltrs per day", or "playbass no less that 20 minutes", "sleep for x hours"
+- Insight: Visualise all this data for a user. This will have various KPI's and will help keep an overviwed track of everything.
+
+## Possible enhancements:
+- Add a configurable reminder service. Essentially, you can configure this to remind you to hit the gym, drink water, etc etc.
+- Consolidate with Mi fit to auto-extract more relevant sleep cycles
